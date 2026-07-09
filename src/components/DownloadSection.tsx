@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLatestRelease } from '../hooks/useLatestRelease'
+import { useReleases } from '../hooks/useReleases'
 import { CONFIG } from '../config'
 
 function LinkCard({
@@ -84,12 +85,7 @@ function LinkCard({
 
 export default function DownloadSection() {
   const latestVersion = useLatestRelease()
-
-  const dynamicReleases = [
-    { version: `v${latestVersion}`, date: 'Jul 7, 2026', tag: 'Latest', notes: 'Improved SRT handshake stability, fixed multi-monitor scaling on Windows.' },
-    { version: 'v2.4.0', date: 'Jun 18, 2026', tag: null, notes: 'QUIC transport backend, real-time analytics panel, macOS 15 support.' },
-    { version: 'v2.3.5', date: 'May 29, 2026', tag: null, notes: 'Security patch for TLS certificate validation edge case.' },
-  ]
+  const dynamicReleases = useReleases()
 
   return (
     <section
@@ -213,7 +209,7 @@ export default function DownloadSection() {
                     fontWeight: 500,
                     fontSize: '0.9rem',
                     color: '#e8eaf0',
-                  }}>{r.version}</span>
+                  }}>v{r.version}</span>
                   {r.tag && (
                     <span style={{
                       fontFamily: "'JetBrains Mono', monospace",
