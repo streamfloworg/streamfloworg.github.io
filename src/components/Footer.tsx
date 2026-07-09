@@ -38,7 +38,7 @@ export default function Footer() {
             fontSize: '0.65rem',
             color: '#374151',
             marginLeft: '4px',
-          }}>MIT License</span>
+          }}>GPL-3.0 License</span>
         </div>
 
         <nav style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
