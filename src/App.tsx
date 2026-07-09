@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Hero from './components/Hero'
 import Features from './components/Features'
+import Roadmap from './components/Roadmap'
 import DownloadSection from './components/DownloadSection'
 import Footer from './components/Footer'
 import Nav from './components/Nav'
@@ -19,6 +20,7 @@ export default function App() {
       <Nav scrolled={scrolled} />
       <Hero />
       <Features />
+      <Roadmap />
       <DownloadSection />
       <Footer />
     </div>
