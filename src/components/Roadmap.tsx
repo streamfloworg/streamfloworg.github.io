@@ -24,6 +24,8 @@ const roadmapItems = [
     statusBg: "rgba(168, 85, 247, 0.08)",
     statusColor: "#a855f7",
     desc: "Transitioning the user interface to the upcoming PanGui framework for native rendering speeds and zero memory footprint.",
+    link: "https://www.pangui.io/",
+    linkLabel: "Learn more about PanGui",
   },
   {
     phase: "Phase 4",
@@ -39,7 +41,7 @@ export default function Roadmap() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section style={{ maxWidth: '1100px', margin: '8rem auto 4rem', padding: '0 2rem' }}>
+    <section id="roadmap" style={{ maxWidth: '1100px', margin: '8rem auto 4rem', padding: '0 2rem' }}>
       <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
         <span style={{
           fontSize: '0.75rem',
@@ -127,6 +129,30 @@ export default function Roadmap() {
               lineHeight: 1.6,
               fontWeight: 300,
             }}>{item.desc}</p>
+
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  marginTop: '0.85rem',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  color: item.statusColor,
+                  textDecoration: 'none',
+                  borderBottom: `1px solid ${item.statusColor}55`,
+                  paddingBottom: '1px',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = item.statusColor }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = `${item.statusColor}55` }}
+              >
+                {item.linkLabel} →
+              </a>
+            )}
           </div>
         ))}
       </div>

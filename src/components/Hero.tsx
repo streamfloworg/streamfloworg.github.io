@@ -324,6 +324,29 @@ export default function Hero() {
           >
             macOS and Linux coming soon
           </span>
+          <a
+            href="#roadmap"
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: "0.7rem",
+              color: "#2dd4bf",
+              textDecoration: "none",
+              letterSpacing: "0.05em",
+              borderBottom: "1px solid rgba(45,212,191,0.35)",
+              paddingBottom: "1px",
+              transition: "color 0.2s, border-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#5eead4";
+              e.currentTarget.style.borderColor = "rgba(94,234,212,0.6)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "#2dd4bf";
+              e.currentTarget.style.borderColor = "rgba(45,212,191,0.35)";
+            }}
+          >
+            See Roadmap →
+          </a>
         </div>
       </div>
 
