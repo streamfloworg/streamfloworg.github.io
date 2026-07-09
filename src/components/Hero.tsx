@@ -1,5 +1,5 @@
-import { useLatestRelease } from '../hooks/useLatestRelease';
-import { CONFIG } from '../config';
+import { useLatestRelease } from "../hooks/useLatestRelease";
+import { CONFIG } from "../config";
 
 export default function Hero() {
   const latestVersion = useLatestRelease();
@@ -60,9 +60,9 @@ export default function Hero() {
           const center = length / 2 - 0.5;
           const dist = Math.abs(i - center);
           const baseHeight = Math.max(4, 48 - dist * 1.1);
-          
+
           // Using a uniform duration prevents phase drift and chaotic wave interference
-          const dur = 2.5; 
+          const dur = 2.5;
           // Linear delay creates a smooth, continuous traveling wave from left to right
           const delay = -(i * 0.04) % dur;
           // Fade opacity out towards the edges for a premium, integrated look
@@ -288,16 +288,30 @@ export default function Hero() {
               {platform}
             </span>
           ))}
-                  <div
-          style={{
-            marginTop: "2.5rem",
-            display: "flex",
-            gap: "0.75rem",
-            justifyContent: "center",
-            flexWrap: "wrap"}}>
-              macOS and Linux comming soon
+          <div
+            style={{
+              marginTop: "2.5rem",
+              display: "flex",
+              gap: "0.75rem",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "0.7rem",
+                color: "#6b7280",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.07)",
+                borderRadius: "4px",
+                padding: "4px 10px",
+                letterSpacing: "0.05em",
+              }}
+            >
+              macOS and Linux coming soon
+            </span>
           </div>
-            </div>
         </div>
       </div>
 
