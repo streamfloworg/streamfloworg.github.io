@@ -298,6 +298,7 @@ export default function Hero() {
             }}
           >
             <span
+              key="comingsoon"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: "0.7rem",
