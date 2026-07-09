@@ -271,7 +271,7 @@ export default function Hero() {
             flexWrap: "wrap",
           }}
         >
-          {["macOS", "Windows", "Linux"].map((platform) => (
+          {["Windows"].map((platform) => (
             <span
               key={platform}
               style={{
@@ -288,6 +288,16 @@ export default function Hero() {
               {platform}
             </span>
           ))}
+                  <div
+          style={{
+            marginTop: "2.5rem",
+            display: "flex",
+            gap: "0.75rem",
+            justifyContent: "center",
+            flexWrap: "wrap"}}>
+              macOS and Linux comming soon
+          </div>
+            </div>
         </div>
       </div>
 
