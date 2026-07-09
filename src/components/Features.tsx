@@ -87,7 +87,7 @@ function FeatureCard({ icon, label, desc }: { icon: React.ReactNode; label: stri
         {icon}
       </div>
       <div style={{
-        fontFamily: "'Roboto Slab', serif",
+        fontFamily: "var(--font-display)",
         fontWeight: 600,
         fontSize: '1rem',
         color: '#e8eaf0',
@@ -123,7 +123,7 @@ export default function Features() {
           What's inside
         </div>
         <h2 style={{
-          fontFamily: "'Roboto Slab', serif",
+          fontFamily: "var(--font-display)",
           fontSize: 'clamp(2rem, 5vw, 3.25rem)',
           fontWeight: 700,
           color: '#e8eaf0',

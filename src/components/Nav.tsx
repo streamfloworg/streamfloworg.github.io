@@ -30,7 +30,7 @@ export default function Nav({ scrolled }: NavProps) {
           <polygon points="11,9 11,19 21,14" fill="#2dd4bf" />
         </svg>
         <span style={{
-          fontFamily: "'Roboto Slab', serif",
+          fontFamily: "var(--font-display)",
           fontWeight: 700,
           fontSize: '1.1rem',
           color: '#e8eaf0',

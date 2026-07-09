@@ -49,7 +49,7 @@ function LinkCard({
         {icon}
       </div>
       <div style={{
-        fontFamily: "'Roboto Slab', serif",
+        fontFamily: "var(--font-display)",
         fontWeight: 700,
         fontSize: '1.1rem',
         color: '#e8eaf0',
@@ -120,7 +120,7 @@ export default function DownloadSection() {
             Get StreamFlow
           </div>
           <h2 style={{
-            fontFamily: "'Roboto Slab', serif",
+            fontFamily: "var(--font-display)",
             fontSize: 'clamp(2rem, 5vw, 3rem)',
             fontWeight: 700,
             color: '#e8eaf0',

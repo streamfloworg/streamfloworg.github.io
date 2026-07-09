@@ -136,7 +136,7 @@ export default function Hero() {
 
         <h1
           style={{
-            fontFamily: "'Roboto Slab', serif",
+            fontFamily: "var(--font-display)",
             fontSize: "clamp(3rem, 8vw, 6rem)",
             fontWeight: 800,
             lineHeight: 1.05,
