@@ -268,6 +268,7 @@ export default function Hero() {
             display: "flex",
             gap: "0.75rem",
             justifyContent: "center",
+            alignItems: "center",
             flexWrap: "wrap",
           }}
         >
@@ -288,31 +289,21 @@ export default function Hero() {
               {platform}
             </span>
           ))}
-          <div
+          <span
+            key="comingsoon"
             style={{
-              marginTop: "2.5rem",
-              display: "flex",
-              gap: "0.75rem",
-              justifyContent: "center",
-              flexWrap: "wrap",
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: "0.7rem",
+              color: "#6b7280",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.07)",
+              borderRadius: "4px",
+              padding: "4px 10px",
+              letterSpacing: "0.05em",
             }}
           >
-            <span
-              key="comingsoon"
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: "0.7rem",
-                color: "#6b7280",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.07)",
-                borderRadius: "4px",
-                padding: "4px 10px",
-                letterSpacing: "0.05em",
-              }}
-            >
-              macOS and Linux coming soon
-            </span>
-          </div>
+            macOS and Linux coming soon
+          </span>
         </div>
       </div>
 
