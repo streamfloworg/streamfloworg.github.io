@@ -167,6 +167,26 @@ export default function Hero() {
 
         <div
           style={{
+            background: "rgba(245, 158, 11, 0.04)",
+            border: "1px solid rgba(245, 158, 11, 0.15)",
+            borderRadius: "12px",
+            padding: "1rem 1.25rem",
+            margin: "0 auto 2.5rem",
+            textAlign: "left",
+            display: "inline-flex",
+            alignItems: "flex-start",
+            gap: "12px",
+            maxWidth: "600px",
+          }}
+        >
+          <span style={{ fontSize: "1.2rem", lineHeight: 1, marginTop: "2px" }}>⚠️</span>
+          <p style={{ margin: 0, fontSize: "0.85rem", color: "#d97706", lineHeight: 1.5, fontWeight: 400 }}>
+            <strong>Important Notice:</strong> StreamFlow is currently in an early alpha stage. We highly recommend conducting extensive off-air testing before using it for live broadcasts, as you may experience stability issues or unexpected behavior.
+          </p>
+        </div>
+
+        <div
+          style={{
             display: "flex",
             gap: "1rem",
             justifyContent: "center",
