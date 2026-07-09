@@ -36,10 +36,10 @@ out/
 *.sln
 *.sw?
 
-# Figma Make Sandboxes / Site Config placeholders
-.figma/
-!.figma/make/site.json
-
 # OS metadata
 .DS_Store
 Thumbs.db
+.claude
+.figma
+AGENTS.md
+CLAUDE.md

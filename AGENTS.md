@@ -1,6 +1,6 @@
-# figma-make-app
+# streamflow-app
 
-React + Vite + Tailwind CSS project running inside Figma Make.
+React + Vite + Tailwind CSS project.
 
 ## Development Server
 
