@@ -1,64 +1,73 @@
 import { useState } from "react";
 
 const features: { icon: React.ReactNode; label: string; desc: string }[] = [
-  // TODO - Fill these placeholder feature items out
-  // {
-  //   icon: (
-  //     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  //       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  //     </svg>
-  //   ),
-  //   label: 'Ultra-low latency',
-  //   desc: 'Sub-50ms glass-to-glass latency with our custom QUIC-based transport layer. No buffering, no compromise.',
-  // },
-  // {
-  //   icon: (
-  //     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  //       <rect x="2" y="3" width="20" height="14" rx="2" />
-  //       <path d="M8 21h8M12 17v4" />
-  //     </svg>
-  //   ),
-  //   label: 'Universal protocols',
-  //   desc: 'Native RTMP, SRT, WebRTC, HLS, and DASH. Connect to any source or platform with zero config.',
-  // },
-  // {
-  //   icon: (
-  //     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  //       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-  //     </svg>
-  //   ),
-  //   label: 'End-to-end encrypted',
-  //   desc: 'Every stream protected with TLS 1.3 and SRTP. Your content, your keys — zero-knowledge by design.',
-  // },
-  // {
-  //   icon: (
-  //     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  //       <circle cx="12" cy="12" r="3" />
-  //       <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-  //     </svg>
-  //   ),
-  //   label: 'Adaptive quality',
-  //   desc: 'Real-time bitrate adaptation based on network conditions. Seamless quality shifts with zero interruption.',
-  // },
-  // {
-  //   icon: (
-  //     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  //       <rect x="3" y="3" width="18" height="18" rx="2" />
-  //       <path d="M3 9h18M3 15h18M9 3v18" />
-  //     </svg>
-  //   ),
-  //   label: 'Multi-view grid',
-  //   desc: 'Monitor up to 16 streams simultaneously in a customizable grid layout with per-stream audio control.',
-  // },
-  // {
-  //   icon: (
-  //     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  //       <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-  //     </svg>
-  //   ),
-  //   label: 'Real-time analytics',
-  //   desc: 'Live bitrate graphs, packet loss indicators, and buffer metrics. Know your stream health at a glance.',
-  // },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+        <polygon points="12 6 7 11 17 11" fill="#2dd4bf" />
+      </svg>
+    ),
+    label: "Hybrid WPF + Rust Core",
+    desc: "Uses a native Rust core built for ultra-fast capture and Direct2D compositing, wrapped in a responsive C# WPF desktop client.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 3v18M3 9h18" />
+      </svg>
+    ),
+    label: "Go Live Scene Builder",
+    desc: "Compose scenes using screen, window, and camera captures. Drag, resize, snap placement, and apply chroma key or opacity filters.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="4" y1="21" x2="4" y2="14" />
+        <line x1="4" y1="10" x2="4" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="12" />
+        <line x1="12" y1="8" x2="12" y2="3" />
+        <line x1="20" y1="21" x2="20" y2="16" />
+        <line x1="20" y1="12" x2="20" y2="3" />
+        <circle cx="4" cy="12" r="1" fill="#2dd4bf" />
+        <circle cx="12" cy="10" r="1" fill="#2dd4bf" />
+        <circle cx="20" cy="14" r="1" fill="#2dd4bf" />
+      </svg>
+    ),
+    label: "SoundFlow Audio Mixer",
+    desc: "Full-featured audio mixer with per-device channel strips. Includes volume, mute, solo, live level metering, and master control.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 2 7 12 12 22 7" />
+        <polyline points="2 17 12 22 22 17" />
+        <polyline points="2 12 12 17 22 12" />
+      </svg>
+    ),
+    label: "Transition-Ready Scenes",
+    desc: "Switch between multiple scene layouts on the fly with smooth fade and slide transitions. Easily backup, import, or export scene sets.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M23 7a2 2 0 0 0-2.45-1.45L16 7V5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2l4.55 1.45A2 2 0 0 0 23 17V7z" />
+      </svg>
+    ),
+    label: "Twitch & YouTube Output",
+    desc: "Direct RTMP streaming with OAuth support. Test your pipeline safely using the built-in followers-hidden bandwidth-test mode.",
+  },
+  {
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+      </svg>
+    ),
+    label: "Velopack Self-Updates",
+    desc: "Seamless, zero-click background installations and updates powered by Velopack, alongside standard MSIX packaging path.",
+  },
 ];
 
 function FeatureCard({
