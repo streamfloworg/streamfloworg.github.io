@@ -1,4 +1,4 @@
 export const CONFIG = {
   githubRepo: "streamfloworg/streamflow", // Format: 'owner/repo'
-  fallbackVersion: "v2.4.1",
+  fallbackVersion: "v0.0.4",
 };

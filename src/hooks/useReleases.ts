@@ -10,33 +10,42 @@ export interface ReleaseInfo {
 
 const CACHE_KEY = 'sf_releases_list';
 const CACHE_TIME_KEY = 'sf_releases_list_time';
-const CACHE_DURATION_MS = 60 * 60 * 1000; // 1 hour caching
+const SHORT_CACHE_DURATION_MS = 5 * 60 * 1000; // 5 minutes fresh window
 
 const FALLBACK_RELEASES: ReleaseInfo[] = [
-  { version: '2.4.1', date: 'Jul 7, 2026', tag: 'Latest', notes: 'Improved SRT handshake stability, fixed multi-monitor scaling on Windows.' },
-  { version: '2.4.0', date: 'Jun 18, 2026', tag: null, notes: 'QUIC transport backend, real-time analytics panel, macOS 15 support.' },
-  { version: '2.3.5', date: 'May 29, 2026', tag: null, notes: 'Security patch for TLS certificate validation edge case.' },
+  { version: '0.0.4', date: 'Jul 13, 2026', tag: 'Latest', notes: 'Initial public release of StreamFlow.' }
 ];
 
 export function useReleases() {
-  const [releases, setReleases] = useState<ReleaseInfo[]>(FALLBACK_RELEASES);
+  const [releases, setReleases] = useState<ReleaseInfo[]>(() => {
+    try {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (cached) {
+        return JSON.parse(cached);
+      }
+    } catch (e) {
+      console.warn('LocalStorage not available:', e);
+    }
+    return FALLBACK_RELEASES;
+  });
 
   useEffect(() => {
     async function fetchReleases() {
-      // 1. Check local storage cache
+      // 1. Check local storage cache freshness
       try {
         const cachedData = localStorage.getItem(CACHE_KEY);
         const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
         
         if (cachedData && cachedTime) {
           const age = Date.now() - parseInt(cachedTime, 10);
-          if (age < CACHE_DURATION_MS) {
+          // If the cached version is very fresh, do not trigger fetch
+          if (age < SHORT_CACHE_DURATION_MS) {
             setReleases(JSON.parse(cachedData));
             return;
           }
         }
       } catch (e) {
-        console.warn('LocalStorage not available:', e);
+        // Ignore
       }
 
       // 2. Fetch from GitHub API
@@ -106,7 +115,6 @@ export function useReleases() {
         }
       } catch (err) {
         console.error('Failed to fetch releases list from GitHub:', err);
-        // Stays on fallback mock list
       }
     }
 

@@ -3,27 +3,38 @@ import { CONFIG } from '../config';
 
 const CACHE_KEY = 'sf_latest_release';
 const CACHE_TIME_KEY = 'sf_latest_release_time';
-const CACHE_DURATION_MS = 60 * 60 * 1000; // 1 hour caching
+const SHORT_CACHE_DURATION_MS = 5 * 60 * 1000; // 5 minutes fresh window
 
 export function useLatestRelease() {
-  const [version, setVersion] = useState<string>(() => CONFIG.fallbackVersion.replace(/^v/, ''));
+  const [version, setVersion] = useState<string>(() => {
+    try {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (cached) {
+        return cached.replace(/^v/, '');
+      }
+    } catch (e) {
+      console.warn('LocalStorage not available:', e);
+    }
+    return CONFIG.fallbackVersion.replace(/^v/, '');
+  });
 
   useEffect(() => {
     async function fetchVersion() {
-      // 1. Check local storage cache
+      // 1. Check local storage cache freshness
       try {
         const cachedVersion = localStorage.getItem(CACHE_KEY);
         const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
         
         if (cachedVersion && cachedTime) {
           const age = Date.now() - parseInt(cachedTime, 10);
-          if (age < CACHE_DURATION_MS) {
+          // If the cached version is very fresh (less than 5 minutes), do not trigger fetch
+          if (age < SHORT_CACHE_DURATION_MS) {
             setVersion(cachedVersion.replace(/^v/, ''));
             return;
           }
         }
       } catch (e) {
-        console.warn('LocalStorage not available:', e);
+        // Ignore
       }
 
       // 2. Fetch from GitHub API
@@ -58,7 +69,6 @@ export function useLatestRelease() {
         }
       } catch (err) {
         console.error('Failed to fetch latest release version from GitHub:', err);
-        // Stays on fallbackVersion/previously cached version
       }
     }
 
